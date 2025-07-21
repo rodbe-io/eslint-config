@@ -1,3 +1,10 @@
+## [1.1.0](https://github.com/rodbe-io/eslint-config/compare/v1.0.0...v1.1.0) (2025-07-21)
+
+
+### Features
+
+* export src files + convert ts to js ([a90608b](https://github.com/rodbe-io/eslint-config/commit/a90608be0890f512b3d2cc8b93598b2e3f511daf))
+
 ## 1.0.0 (2025-07-21)
 
 
