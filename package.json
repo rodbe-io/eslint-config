@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "RBX's Eslint config",
   "keywords": [
+    "eslint",
     "front-end",
     "RBX",
     "typescript"
@@ -20,8 +21,22 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/index.js"
+    },
+    "./js": {
+      "import": "./dist/js.js"
+    },
+    "./next": {
+      "import": "./dist/next.js"
+    },
+    "./nx": {
+      "import": "./dist/nx.js"
+    },
+    "./react": {
+      "import": "./dist/react.js"
+    },
+    "./ts": {
+      "import": "./dist/ts.js"
     }
   },
   "files": [
@@ -29,7 +44,7 @@
   ],
   "scripts": {
     "prebuild": "pnpm run type-check",
-    "build": "pkgroll",
+    "build": "rm -rf dist && pkgroll",
     "commit": "git-cz",
     "commitlint": "commitlint --edit",
     "eslint:fix": "eslint --fix",
@@ -52,6 +67,7 @@
     "@commitlint/types": "^19.5.0",
     "@eslint/js": "^9.21.0",
     "@eslint/json": "^0.10.0",
+    "@nx/eslint-plugin": "21.2.4",
     "@rodbe/prettier-config": "^1.3.1",
     "@rodbe/tsconfig": "^1.0.1",
     "@semantic-release/changelog": "6.0.3",
@@ -77,6 +93,9 @@
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.24.1",
     "vitest": "^3.0.6"
+  },
+  "peerDependencies": {
+    "eslint": ">=9"
   },
   "packageManager": "pnpm@9.15.2",
   "engines": {

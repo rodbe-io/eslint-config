@@ -1,4 +1,3 @@
-# RBX Typescript Library template
+# Eslint config by Rodbe 👨🏻‍🚀
 
-## Prerequisites
-- Set secret action: `NPM_TOKEN` so that the **github action** can publish to **npm**
+##
