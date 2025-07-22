@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/rodbe-io/eslint-config/compare/v1.1.0...v1.2.0) (2025-07-22)
+
+
+### Features
+
+* use ts for rule declaration ([f2006b1](https://github.com/rodbe-io/eslint-config/commit/f2006b110cde8c796c6b02e241c5a15fd3ab7561))
+
 ## [1.1.0](https://github.com/rodbe-io/eslint-config/compare/v1.0.0...v1.1.0) (2025-07-21)
 
 
