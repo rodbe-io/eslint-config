@@ -1,4 +1,6 @@
-export const jsRules = {
+import type { EslintConfig } from './types';
+
+export const jsRules: EslintConfig = {
   rules: {
     curly: 'error',
     'max-params': ['error', 2],

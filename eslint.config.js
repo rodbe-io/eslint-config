@@ -1,12 +1,17 @@
-import { defineConfig } from 'eslint/config';
+// @ts-check
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 import js from '@eslint/js';
 import json from '@eslint/json';
+import tsEslint from 'typescript-eslint';
 import prettier from 'eslint-plugin-prettier/recommended';
-// TODO: check type error
-// import packageJson from 'eslint-plugin-package-json/configs/recommended';
+import packageJsonPlugin, { configs as packageJsonConfigs } from 'eslint-plugin-package-json';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // eslint-disable-next-line no-restricted-exports
-export default defineConfig([
+export default tsEslint.config(
   { ignores: ['**/dist/', '**/docs/', '**/coverage/', '**/*.d.ts', 'node_modules'] },
   {
     files: ['**/*.json'],
@@ -37,9 +42,60 @@ export default defineConfig([
     },
   },
   {
-    extends: [js.configs.recommended],
-    files: ['**/*.js'],
+    extends: [
+      js.configs.recommended,
+      tsEslint.configs.strictTypeChecked,
+      tsEslint.configs.stylisticTypeChecked,
+    ],
+    files: ['**/*.{ts,tsx,js,jsx}'],
+    languageOptions: {
+      parserOptions: {
+        projectService: {
+          allowDefaultProject: ['eslint.config.js'],
+        },
+        tsconfigRootDir: __dirname,
+      },
+    },
     rules: {
+      '@typescript-eslint/array-type': [
+        'error',
+        {
+          default: 'generic',
+        },
+      ],
+      '@typescript-eslint/consistent-type-exports': 'error',
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          fixStyle: 'inline-type-imports',
+          prefer: 'type-imports',
+        },
+      ],
+      '@typescript-eslint/member-ordering': [
+        'error',
+        {
+          default: {
+            memberTypes: ['method', 'field'],
+            order: 'alphabetically-case-insensitive',
+          },
+        },
+      ],
+      '@typescript-eslint/no-explicit-any': [
+        'error',
+        {
+          fixToUnknown: true,
+        },
+      ],
+      '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
+      '@typescript-eslint/no-unnecessary-template-expression': 'error',
+      '@typescript-eslint/no-unnecessary-type-arguments': 'error',
+      '@typescript-eslint/no-unnecessary-type-constraint': 'error',
+      '@typescript-eslint/prefer-as-const': 'error',
+      '@typescript-eslint/prefer-includes': 'error',
+      '@typescript-eslint/prefer-optional-chain': 'error',
+      '@typescript-eslint/prefer-reduce-type-parameter': 'error',
+      '@typescript-eslint/prefer-regexp-exec': 'error',
+      '@typescript-eslint/promise-function-async': 'error',
       curly: 'error',
       'max-params': ['error', 2],
       'newline-after-var': 'error',
@@ -76,6 +132,19 @@ export default defineConfig([
       'spaced-comment': 'error',
     },
   },
-  // packageJson,
-  prettier,
-]);
+  {
+    ...packageJsonConfigs.recommended,
+    files: ['**/package.json'],
+    language: 'json/json',
+    plugins: {
+      'package-json': packageJsonPlugin,
+    },
+    rules: {
+      ...packageJsonConfigs.recommended.rules,
+    },
+  },
+  {
+    files: ['**/*.{ts,tsx,js,jsx}', 'tsconfig.json'],
+    ...prettier,
+  }
+);

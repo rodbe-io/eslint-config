@@ -1,4 +1,6 @@
-export const tsRules = {
+import type { EslintConfig } from './types';
+
+export const tsRules: EslintConfig = {
   rules: {
     '@typescript-eslint/array-type': [
       'error',

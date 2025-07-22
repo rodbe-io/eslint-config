@@ -1,4 +1,6 @@
-export const nxRules = {
+import type { EslintConfig } from './types';
+
+export const nxRules: EslintConfig = {
   rules: {
     '@nx/enforce-module-boundaries': [
       'error',
