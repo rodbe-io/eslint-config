@@ -34,23 +34,11 @@ export default defineConfig([
 npm i -D eslint @eslint/js typescript typescript-eslint @rodbe/eslint-config
 ```
 
-2.- **Include it in your tsconfig.json**
-```json
-{
-  "compilerOptions": {
-    // your config
-  },
-  "exclude": ["node_modules", "dist"],
-  "include": ["src", "eslint.config.js"]
-}
-
-```
-
-3.- **In your `eslint.config.js`**
+2.- **In your `eslint.config.js`**
 
 You can integrate in 2 ways.
 
-3.1- **Recommended integration**
+2.1- **Recommended integration**
 ```js
 import tseslint from 'typescript-eslint';
 import eslint from '@eslint/js';
@@ -69,7 +57,9 @@ export default tseslint.config(
     files: ['**/*.{ts,tsx,js,jsx}'],
     languageOptions: {
       parserOptions: {
-        projectService: true,
+        projectService: {
+          allowDefaultProject: ['eslint.config.js'],
+        },,
         tsconfigRootDir: import.meta.dirname,
       },
     },
@@ -77,7 +67,7 @@ export default tseslint.config(
 );
 ```
 
-3.2.- **Integration from scratch**
+2.2.- **Integration from scratch**
 ```js
 import tseslint from 'typescript-eslint';
 
@@ -93,7 +83,9 @@ export default tseslint.config(
     languageOptions: {
       parser: tsEslint.parser,
       parserOptions: {
-        projectService: true,
+        projectService: {
+          allowDefaultProject: ['eslint.config.js'],
+        },,
         tsconfigRootDir: import.meta.dirname,
       },
     },
@@ -112,19 +104,7 @@ export default tseslint.config(
 npm i -D eslint @eslint/js typescript typescript-eslint @nx/eslint-plugin @rodbe/eslint-config
 ```
 
-2.- **Include it in your tsconfig.json**
-```json
-{
-  "compilerOptions": {
-    // your config
-  },
-  "exclude": ["node_modules", "dist"],
-  "include": ["src", "eslint.config.js"]
-}
-
-```
-
-3.- **In your `eslint.config.js`**
+2.- **In your `eslint.config.js`**
 
 ```js
 import tseslint from 'typescript-eslint';
