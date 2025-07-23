@@ -2,11 +2,11 @@
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import js from '@eslint/js';
+import eslint from '@eslint/js';
 import json from '@eslint/json';
 import tsEslint from 'typescript-eslint';
 import prettier from 'eslint-plugin-prettier/recommended';
-import packageJsonPlugin, { configs as packageJsonConfigs } from 'eslint-plugin-package-json';
+import packageJsonPlugin from 'eslint-plugin-package-json';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -43,7 +43,7 @@ export default tsEslint.config(
   },
   {
     extends: [
-      js.configs.recommended,
+      eslint.configs.recommended,
       tsEslint.configs.strictTypeChecked,
       tsEslint.configs.stylisticTypeChecked,
     ],
@@ -132,17 +132,7 @@ export default tsEslint.config(
       'spaced-comment': 'error',
     },
   },
-  {
-    ...packageJsonConfigs.recommended,
-    files: ['**/package.json'],
-    language: 'json/json',
-    plugins: {
-      'package-json': packageJsonPlugin,
-    },
-    rules: {
-      ...packageJsonConfigs.recommended.rules,
-    },
-  },
+  packageJsonPlugin.configs.recommended,
   {
     files: ['**/*.{ts,tsx,js,jsx}', 'tsconfig.json'],
     ...prettier,
