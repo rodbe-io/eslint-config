@@ -1,3 +1,9 @@
+## [1.2.1](https://github.com/rodbe-io/eslint-config/compare/v1.2.0...v1.2.1) (2025-07-25)
+
+### Bug Fixes
+
+* docs typo ([b10c328](https://github.com/rodbe-io/eslint-config/commit/b10c3285da9404d8ca1f89fbec2c7790baea5757))
+
 ## [1.2.0](https://github.com/rodbe-io/eslint-config/compare/v1.1.0...v1.2.0) (2025-07-22)
 
 
