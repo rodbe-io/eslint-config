@@ -59,7 +59,8 @@ export default tseslint.config(
       parserOptions: {
         projectService: {
           allowDefaultProject: ['eslint.config.js'],
-        },,
+        },
+        // import.meta.dirname is available after Node.js v20.11.0
         tsconfigRootDir: import.meta.dirname,
       },
     },
@@ -85,7 +86,8 @@ export default tseslint.config(
       parserOptions: {
         projectService: {
           allowDefaultProject: ['eslint.config.js'],
-        },,
+        },
+        // import.meta.dirname is available after Node.js v20.11.0
         tsconfigRootDir: import.meta.dirname,
       },
     },
