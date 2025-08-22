@@ -1,3 +1,9 @@
+## [1.3.0](https://github.com/rodbe-io/eslint-config/compare/v1.2.1...v1.3.0) (2025-08-22)
+
+### Features
+
+* add domain-ui constraints ([29ed990](https://github.com/rodbe-io/eslint-config/commit/29ed9907ae657d58e00c3ab35c9bb20508fc6ac8))
+
 ## [1.2.1](https://github.com/rodbe-io/eslint-config/compare/v1.2.0...v1.2.1) (2025-07-25)
 
 ### Bug Fixes
