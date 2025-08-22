@@ -21,12 +21,15 @@ export const nxRules: EslintConfig = {
             sourceTag: 'actor:ds',
           },
           {
-            onlyDependOnLibsWithTags: ['actor:ds', 'actor:ui', 'actor:service'],
+            onlyDependOnLibsWithTags: ['actor:ds', 'actor:ui'],
             sourceTag: 'actor:ui',
           },
           {
-            // bannedExternalImports: ['*'],
-            onlyDependOnLibsWithTags: ['actor:ds', 'actor:ui', 'actor:service'],
+            onlyDependOnLibsWithTags: ['actor:ds', 'actor:ui', 'actor:domain', 'actor:service'],
+            sourceTag: 'actor:domain-ui',
+          },
+          {
+            onlyDependOnLibsWithTags: ['actor:ds', 'actor:ui', 'actor:service', 'actor:domain'],
             sourceTag: 'actor:frontend',
           },
         ],
