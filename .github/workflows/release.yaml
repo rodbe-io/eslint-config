@@ -17,7 +17,7 @@ env:
   HUSKY: 0
 
 jobs:
-  call-shared-workflow:
+  release-workflow:
     uses: rodbe-io/shared-workflows/.github/workflows/release.yaml@main
 
     with:
