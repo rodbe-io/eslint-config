@@ -29,7 +29,13 @@ export const nxRules: EslintConfig = {
             sourceTag: 'actor:domain-ui',
           },
           {
-            onlyDependOnLibsWithTags: ['actor:ds', 'actor:ui', 'actor:service', 'actor:domain'],
+            onlyDependOnLibsWithTags: [
+              'actor:domain-ui',
+              'actor:domain',
+              'actor:ds',
+              'actor:service',
+              'actor:ui',
+            ],
             sourceTag: 'actor:frontend',
           },
         ],
