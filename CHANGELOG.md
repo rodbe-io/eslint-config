@@ -1,3 +1,9 @@
+## [1.4.0](https://github.com/rodbe-io/eslint-config/compare/v1.3.0...v1.4.0) (2025-09-07)
+
+### Features
+
+* update boundary for actor frontend ([0dcb335](https://github.com/rodbe-io/eslint-config/commit/0dcb335f6b3d99d39150d5d241f6482d5ec5eaf3))
+
 ## [1.3.0](https://github.com/rodbe-io/eslint-config/compare/v1.2.1...v1.3.0) (2025-08-22)
 
 ### Features
